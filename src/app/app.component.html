@@ -1,17 +1,16 @@
-<h1 align="center"> EFM-Newspaper </h1>
+<h1 align="center">EFM-Newspaper</h1>
 <div align="right">
   <label for="Username"> </label>
-  <input type="text" id="Username" [(ngModel)]="user.username" placeholder="Username" size="10">
+  <input type="text" id="Username" [(ngModel)]="user.username" placeholder="Username" size="10" />
   <label for="password"> </label>
-  <input type="text" id="password" [(ngModel)]="user.password" placeholder="Password" size="10">
-  <button (click)="login()">
-    Login
-   </button>
+  <input type="text" id="password" [(ngModel)]="user.password" placeholder="Password" size="10" />
+  <button (click)="login()">Login</button>
 </div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="">EFM-Newspaper</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -32,6 +31,11 @@
           <a class="nav-link" aria-current="page" routerLink="all">All</a>
         </li>
       </ul>
+    </div>
+    <div class="container-fluid">
+      <button style="float: right">Create Article</button>
+      <input type="text" id="filter" [(ngModel)]="filter.filtertext" placeholder="Search here" size="10"
+        style="float: right" />
     </div>
   </div>
 </nav>

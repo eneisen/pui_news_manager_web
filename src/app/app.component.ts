@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './Interfaces/User';
+import { Filter } from './Interfaces/Filter';
+
 
 @Component({
   selector: 'app-root',
@@ -12,6 +14,10 @@ export class AppComponent implements OnInit{
   user: User = {
     username: '',
     password: '',
+  }
+
+  filter: Filter = {
+    filtertext: '',
   }
 
   constructor () {}
