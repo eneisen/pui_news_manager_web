@@ -44,3 +44,7 @@
     background-color: black;
     color: white;
   }
+  ul li{
+    display: inline;
+    text-decoration-line: none;
+  }
