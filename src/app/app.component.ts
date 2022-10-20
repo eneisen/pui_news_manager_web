@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from './Interfaces/User';
 import { Filter } from './Interfaces/Filter';
 import { NewsService } from './services/news.service';
+import { MainPageComponent } from './main-page/main-page.component';
 import { LoginService } from './services/login.service';
 
 
@@ -23,31 +24,34 @@ export class AppComponent implements OnInit{
     filtertext: '',
   }
 
-  constructor (private api: NewsService, private loginservice: LoginService) {}
-  allArticleData: any[] = [];
-  filteredArticles: any[]= [];
+  constructor (private api: NewsService, private mainpage: MainPageComponent, private loginservice: LoginService) {}
+  // allArticleData: any[] = [];
+  // filteredArticles: any[]= [];
 
-  applyFilters(filter: string){
+  applyFilters(filter: string): void{
+    console.log(this.mainpage.allArticleData)
+
+    this.mainpage.applyFilters(filter);
     //PROBLEM: this.mainpage.allArticleData wird überschrieben und kommt nicht wieder auf den Originalzustand
-    console.log("Filtering started: " + filter)
-    console.log("vorher: ")
-    console.log(this.allArticleData)
-    switch (filter){
-      case "Technology":
-      case "National":
-      case "Economy":
-      case "Sports":
-        console.log("Kategorie erkannt: " + filter)
-        this.filteredArticles = this.allArticleData.filter(data => data.category == filter);
-        break;
-      case "":
-        this.filteredArticles = this.allArticleData;
-        break;
-      default:
-        this.filteredArticles = this.allArticleData.filter(data => data.abstract.contains(filter));
-    }
-    console.log("nachher: ")
-    console.log(this.filteredArticles)
+    // console.log("Filtering started: " + filter)
+    // console.log("vorher: ")
+    // console.log(this.mainpage.allArticleData)
+    // switch (filter){
+    //   case "Technology":
+    //   case "National":
+    //   case "Economy":
+    //   case "Sports":
+    //     console.log("Kategorie erkannt: " + filter)
+    //     this.mainpage.filteredArticles = this.mainpage.allArticleData.filter(data => data.category == filter);
+    //     break;
+    //   case "":
+    //     this.mainpage.filteredArticles = this.mainpage.allArticleData;
+    //     break;
+    //   default:
+    //     this.mainpage.filteredArticles = this.mainpage.allArticleData.filter(data => data.abstract.contains(filter));
+    // }
+    // console.log("nachher: ")
+    // console.log(this.mainpage.filteredArticles)
 
   }
 
@@ -56,10 +60,11 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.api.getArticles().subscribe(result => {
-console.log(result)
-this.allArticleData = result;
+//     this.api.getArticles().subscribe(result => {
+// console.log(result)
+// this.allArticleData = result;
+// this.applyFilters("");
 // this.allArticleData = this.allArticleData.filter(data => data.category == "Sports")
-    })
+    // })
   }
 }

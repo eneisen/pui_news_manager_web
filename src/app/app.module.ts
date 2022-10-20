@@ -28,7 +28,7 @@ import { ArticleEditComponent } from './article-edit/article-edit.component';
     NgbModule,
     FormsModule
   ],
-  providers: [],
+  providers: [MainPageComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
