@@ -14,6 +14,7 @@ export class NewsService {
   private newsUrl = 'http://sanger.dia.fi.upm.es/pui-rest-news/articles';  // URL to web api
   private articleUrl = 'http://sanger.dia.fi.upm.es/pui-rest-news/article';  // URL to web api
   private error?: string; 
+  articleList: Article[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -26,7 +27,17 @@ export class NewsService {
       'Content-Type': 'application/json',
       Authorization: 'PUIRESTAUTH apikey=' + this.APIKEY_ANON
     })
-  };
+  }
+
+  generateId() {
+    let max = 0;
+    this.articleList.forEach(article => {
+      if (article.id > max) {
+        max = article.id;
+      }
+    });
+    return max + 1;
+  }
 
   // Modifies the APIKEY with the received value
   setUserApiKey(apikey: string) {
