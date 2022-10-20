@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from './Interfaces/User';
 import { Filter } from './Interfaces/Filter';
 import { NewsService } from './services/news.service';
+import { LoginService } from './services/login.service';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class AppComponent implements OnInit{
     filtertext: '',
   }
 
-  constructor (private api: NewsService) {}
+  constructor (private api: NewsService, private loginservice: LoginService) {}
   allArticleData: any[] = [];
   filteredArticles: any[]= [];
 
@@ -50,9 +51,8 @@ export class AppComponent implements OnInit{
 
   }
 
-  login (): void {
-    this.user.username = "";
-    this.user.password = "";
+  login (name: string, pwd: string): void {
+    this.loginservice.login(name, pwd)
   }
 
   ngOnInit(): void {

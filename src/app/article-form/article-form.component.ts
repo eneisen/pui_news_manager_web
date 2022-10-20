@@ -17,7 +17,7 @@ export class ArticleFormComponent implements OnInit {
  @ViewChild('articleForm') articleForm: any
 
   constructor(private newsservice: NewsService, private router: Router) {
-    this.article = { id: 0, title: "", subtitle: "", category: "", abstract: "", body: "" }
+    this.article = { id: 0, title: "", image: undefined, subtitle: "", category: "", abstract: "", body: "" }
     // this.articleList = this.newsservice.getArticles()
     this.isImageSaved = false;
     this.imageError = undefined; 
@@ -73,11 +73,11 @@ export class ArticleFormComponent implements OnInit {
   }
 
 
-  saveForm(): void {
+  saveArticle(): void {
     this.newsservice.createArticle({
-      id: this.newsservice.generateId(), title: this.article.title, subtitle: this.article.title, category: this.article.category, abstract: this.article.abstract,  body: this.article.body
+      id: this.newsservice.generateId(), title: this.article.title, image: this.article.image, subtitle: this.article.title, category: this.article.category, abstract: this.article.abstract,  body: this.article.body
     })
-    window.alert('The article "${this.article.title}" has been saved')
+    window.alert("The article '" + this.article.title + "' has been saved");
     this.articleForm.reset()
     this.router.navigate(['/articlelist'])
   }

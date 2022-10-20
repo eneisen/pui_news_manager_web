@@ -82,7 +82,7 @@ export class ArticleEditComponent implements OnInit {
 
   saveEdit(id:number): void {
     this.newsservice.updateArticle({
-      id: id, title: this.article.title, subtitle: this.article.title, category: this.article.category, abstract: this.article.abstract,  body: this.article.body
+      id: id, title: this.article.title, image: this.article.image, subtitle: this.article.title, category: this.article.category, abstract: this.article.abstract,  body: this.article.body
     })
     window.alert("The article '" + this.article.title + "' has been saved");
     this.articleedit.reset()

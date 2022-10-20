@@ -1,11 +1,11 @@
 <h3>Article Form</h3><br>
-<form #articleform="ngForm" (ngSubmit)="saveForm()" class="mb-5">
+<form #articleform="ngForm" (ngSubmit)="saveArticle()" class="mb-5">
     <div class="form-group">
         <label> Title<abbr title="required">*</abbr> </label>
         <input class="form-control input-field mb-2" type="text" required
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="article.title" name="from" #from="ngModel"
             [ngClass]="from.valid ? 'valid-input': 'invalid-input'">
-        <div *ngIf="from.invalid && !from.pristine" class="text-danger mb-2"> Please provide valid title</div>
+        <!-- <div *ngIf="from.invalid && !from.pristine" class="text-danger mb-2"> Please provide valid title</div> -->
     </div>
     <div class="form-group">
         <input type="file" (change)="fileChangeEvent($event)" class="fileInputProfile">
@@ -21,7 +21,7 @@
         <input class="form-control input-field mb-2" type="text" required
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="article.subtitle" name="to" #to="ngModel"
             [ngClass]="to.valid ? 'valid-input': 'invalid-input'">
-        <div *ngIf="to.invalid && !to.pristine" class="text-danger mb-2"> Please provide valid subtitle</div>
+        <!-- <div *ngIf="to.invalid && !to.pristine" class="text-danger mb-2"> Please provide valid subtitle</div> -->
     </div>
     <label for="Category">Choose a Category:</label>
     <select name="Category" id="category">
