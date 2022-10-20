@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Route } from '@angular/router';
+import { Article } from '../Interfaces/Article';
+import { NewsService } from '../services/news.service';
+import { ActivatedRoute } from '@angular/router';
+import { Inject } from '@angular/core';
 
 @Component({
   selector: 'app-article',
@@ -7,9 +12,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticleComponent implements OnInit {
 
-  constructor() { }
+  article: any;
+
+  constructor(private newsservice: NewsService, @Inject(ActivatedRoute) private route : ActivatedRoute) {
+    newsservice.getArticle(Number(this.route.snapshot.paramMap.get('id'))).subscribe(result => {
+      console.log(result);
+      this.article = result;
+    })
+  }
 
   ngOnInit(): void {
+    console.log("TEST")
   }
 
 }

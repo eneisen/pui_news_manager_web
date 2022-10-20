@@ -8,7 +8,7 @@ import { ArticleViewComponent } from './article-view/article-view.component';
 import { MainPageComponent } from './main-page/main-page.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/welcome', pathMatch: 'full' },
+  { path: '', redirectTo: '/mainpage', pathMatch: 'full' },
   { path: 'article/ :id', component: ArticleComponent },
   { path: 'articleform', component: ArticleFormComponent },
   { path: 'landingpage', component: AppComponent },
