@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'landingpage', component: AppComponent },
   { path: 'articleview', component: ArticleViewComponent },
   { path: 'mainpage', component: MainPageComponent },
-  { path: 'articleedeit', component: ArticleEditComponent },
+  { path: 'articleedit', component: ArticleEditComponent },
 ];
 
 @NgModule({
