@@ -1,17 +1,19 @@
 <div>
   <img align="left" src="https://i.ibb.co/kxvmK9f/image.png" alt="EFM News Logo" style="width:10%;height:auto;">
-  <h1 align="center">EFM-Newspaper</h1>
+  <h1 align="center">EFM News</h1>
   <div align="right">
     <label for="Username"> </label>
-    <input type="text" id="Username" [(ngModel)]="user.username" placeholder="Username" size="10" />
+    <input type="text" id="Username" [(ngModel)]="user.username" placeholder="Username" size="10"
+      style="margin-right:10px;" />
     <label for="password"> </label>
-    <input type="text" id="password" [(ngModel)]="user.password" placeholder="Password" size="10" />
+    <input type="text" id="password" [(ngModel)]="user.password" placeholder="Password" size="10"
+      style="margin-right:10px;" />
     <button (click)="login()">Login</button>
   </div>
 </div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="">EFM-Newspaper</a>
+    <a class="navbar-brand" routerLink="">EFM News</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -38,7 +40,7 @@
     <div class="container-fluid">
       <button style="float: right">Create Article</button>
       <input type="text" id="filter" [(ngModel)]="filter.filtertext" placeholder="Search here" size="10"
-        style="float: right" />
+        style="float: right;margin-right:10px;" />
     </div>
   </div>
 </nav>
