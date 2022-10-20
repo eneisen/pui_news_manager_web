@@ -42,8 +42,10 @@
             [ngClass]="body.valid ? 'valid-input': 'invalid-input'">
     </textarea>
     </div>
-    <button class="btn btn-primary btn-sm mt-3 me-2" type="submit" [disabled]="!articleForm.form.valid">Save article
+    <button class="btn btn-dark btn-sm" type="submit" [disabled]="!articleForm.form.valid"
+        style="background-color:green;">Save article
     </button>
-    <button class="btn btn-primary btn-sm mt-3" type="button" (click)="articleForm.reset()">Reset form</button>
+    <button class="btn btn-dark btn-sm" type="button" (click)="articleForm.reset()"
+        style="background-color:rgb(228, 2, 2);">Reset form</button>
 </form>
-<button class="btn btn-primary btn-sm mt-3" type="button" routerLink="/mainpage">Go Back</button>
+<button class="btn btn-dark btn-sm" type="button" routerLink="/mainpage">Go Back</button>
