@@ -57,7 +57,7 @@
                     <a class="btn btn-dark btn-sm" (click)="removeArticle(data.id)" style="margin-right:5px;">Remove</a>
                     <a class="btn btn-dark btn-sm" [routerLink]="['/articleedit', data.id]">Edit</a>
                 </div>
-                <a class="btn btn-dark btn-sm" href="{{data.url}}" target="_blank" style="background-color:green;"
+                <a class="btn btn-dark btn-sm" href="{{data.url}}" target="_self" style="background-color:green;"
                     [routerLink]="['/article', data.id]">Read
                     More</a>
             </div>
