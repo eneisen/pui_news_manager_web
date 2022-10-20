@@ -5,6 +5,7 @@ import { AppModule } from './app.module';
 import { ArticleFormComponent } from './article-form/article-form.component';
 import { ArticleComponent } from './article/article.component';
 import { ArticleViewComponent } from './article-view/article-view.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/welcome', pathMatch: 'full' },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'articleform', component: ArticleFormComponent },
   { path: 'landingpage', component: AppComponent },
   { path: 'articleview', component: ArticleViewComponent },
+  { path: 'mainpage', component: MainPageComponent },
 ];
 
 @NgModule({
