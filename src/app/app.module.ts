@@ -18,6 +18,7 @@ import { ArticleComponent } from './article/article.component';
     ArticleComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     NgbModule,
