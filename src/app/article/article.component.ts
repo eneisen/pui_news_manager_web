@@ -24,7 +24,6 @@ export class ArticleComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    console.log("TEST")
     this.api.getArticle(Number(this.route.snapshot.paramMap.get('id'))).subscribe(result => {
       // this.api.getArticle(45).subscribe(result => {
       console.log(result);

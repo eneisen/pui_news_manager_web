@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Route, Router } from '@angular/router';
 import { Article } from '../Interfaces/Article';
 import { NewsService } from '../services/news.service';
 import * as _ from 'lodash';
+import { ActivatedRoute } from '@angular/router';
+import { Inject } from '@angular/core';
 
 @Component({
   selector: 'app-article-edit',
@@ -16,7 +18,7 @@ export class ArticleEditComponent implements OnInit {
 
  @ViewChild('articleedit') articleedit: any
 
-  constructor(private newsservice: NewsService, private router: Router) {
+  constructor(private api: NewsService, @Inject(ActivatedRoute) private route : ActivatedRoute, private newsservice: NewsService, private router: Router) {
     this.article = { id: 0, title: "", subtitle: "", category: "", abstract: "", body: "" }
     // this.articleList = this.newsservice.getArticles()
     this.isImageSaved = false;
@@ -34,6 +36,11 @@ export class ArticleEditComponent implements OnInit {
    image_data: string; 
 
   ngOnInit(): void {
+    this.api.getArticle(Number(this.route.snapshot.paramMap.get('id'))).subscribe(result => {
+      // this.api.getArticle(45).subscribe(result => {
+      console.log(result);
+      this.article = result;
+    })
   }
 
   fileChangeEvent(fileInput: any) {
