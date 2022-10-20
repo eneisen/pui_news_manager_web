@@ -66,7 +66,7 @@ export class MainPageComponent implements OnInit {
       case "economy":
       case "sports":
         console.log("Kategorie erkannt: " + filter)
-        this.filteredArticles = this.allArticleData.filter(data => data.category == filter);
+        this.filteredArticles = this.allArticleData.filter(data => data.category.toLowerCase() == filter);
         break;
       case "":
         this.filteredArticles = this.allArticleData;
