@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './Interfaces/User';
 import { Filter } from './Interfaces/Filter';
+import { NewsService } from './services/news.service';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class AppComponent implements OnInit{
     filtertext: '',
   }
 
-  constructor () {}
+  constructor (private api: NewsService) {}
 
   login (): void {
     this.user.username = "";
@@ -29,6 +30,8 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    
+    this.api.getArticles().subscribe(result => {
+console.log(result)
+    })
   }
 }
