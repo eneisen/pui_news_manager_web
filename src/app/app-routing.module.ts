@@ -3,10 +3,11 @@ import { Router, RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AppModule } from './app.module';
 import { ArticleFormComponent } from './article-form/article-form.component';
+import { ArticleComponent } from './article/article.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/welcome', pathMatch: 'full' },
-  // { path: 'emailreaderbasic', component: EmailReaderBasicComponent },
+  { path: 'article', component: ArticleComponent },
   { path: 'articleform', component: ArticleFormComponent },
   { path: 'landingpage', component: AppComponent },
   // { path: 'emailslist', component: EmailsListComponent },

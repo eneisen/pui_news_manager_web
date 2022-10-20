@@ -8,7 +8,7 @@
     <label for="password"> </label>
     <input type="text" id="password" [(ngModel)]="user.password" placeholder="Password" size="10"
       style="margin-right:10px;" />
-    <button (click)="login()">Login</button>
+    <a class="btn btn-dark btn-sm" routerLink="'/article'">Login</a>
   </div>
 </div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -38,9 +38,7 @@
       </ul>
     </div>
     <div class="container-fluid">
-      <button style="float: right" class="btn btn-primary">
-        <a class="btn btn-primary btn-sm mr-1" [routerLink]="['/articleform']">Create Article</a>
-      </button>
+      <a style="float: right" class="btn btn-dark btn-sm" routerLink="/articleform">Create Article</a>
       <input type="text" id="filter" [(ngModel)]="filter.filtertext" placeholder="Search here" size="10"
         style="float: right;margin-right:10px;" />
     </div>
@@ -63,12 +61,3 @@
     </div>
   </div>
 </div>
-<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <ul>
-    <a style="text-decoration: none;"></a>
-    <li><a href="#">All </a></li>
-    <li><a href="#">National </a></li>
-    <li><a href="#">International </a></li>
-    <li><a href="#">Sports </a></li>
- </ul>
-</nav> -->
