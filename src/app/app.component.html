@@ -38,7 +38,7 @@
       </ul>
     </div>
     <div class="container-fluid">
-      <a style="float: right" class="btn btn-dark btn-sm" routerLink="/articleform">Create Article</a>
+      <a style="float: right" class="btn btn-dark btn-sm" [routerLink]="['/articleform']">Create Article</a>
       <input type="text" id="filter" [(ngModel)]="filter.filtertext" placeholder="Search here" size="10"
         style="float: right;margin-right:10px;" />
     </div>
@@ -60,4 +60,5 @@
       </div>
     </div>
   </div>
+  <router-outlet></router-outlet>
 </div>

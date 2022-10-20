@@ -9,13 +9,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { ArticleViewComponent } from './article-view/article-view.component';
 import { ArticleFormComponent } from './article-form/article-form.component';
 import { ArticleComponent } from './article/article.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ArticleViewComponent,
     ArticleFormComponent,
-    ArticleComponent
+    ArticleComponent,
+    MainPageComponent
   ],
   imports: [
     HttpClientModule,
