@@ -10,44 +10,5 @@
       style="margin-right:10px;" />
     <a class="btn btn-dark btn-sm" routerLink="'/article'">Login</a>
   </div>
-</div>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/mainpage">EFM News</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" (click)="applyFilters('National')" routerLink="/mainpage">National</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" (click)="applyFilters('Economy')" routerLink="/mainpage">Economy</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" (click)="applyFilters('Sports')" routerLink="/mainpage">Sports</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" (click)="applyFilters('Technology')"
-            routerLink="/mainpage">Technology</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" (click)="applyFilters('')" routerLink="/mainpage">All</a>
-        </li>
-      </ul>
-    </div>
-    <div class="container-fluid">
-      <a style="float: right" class="btn btn-dark btn-sm" [routerLink]="['/articleform']">Create Article</a>
-      <input type="text" id="filter" [(ngModel)]="filter.filtertext" placeholder="Search here" size="10"
-        style="float: right;margin-right:10px;" />
-    </div>
-  </div>
-</nav>
-<div class="container-fluid mt-3">
-  <h4>
-    <marquee>--- Breaking news provided by Enrico, Finn and Marek ---</marquee>
-  </h4>
   <router-outlet></router-outlet>
 </div>
