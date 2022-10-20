@@ -13,6 +13,7 @@ export class NewsService {
 
   private newsUrl = 'http://sanger.dia.fi.upm.es/pui-rest-news/articles';  // URL to web api
   private articleUrl = 'http://sanger.dia.fi.upm.es/pui-rest-news/article';  // URL to web api
+  private error?: string; 
 
   constructor(private http: HttpClient) { }
 
@@ -81,6 +82,10 @@ export class NewsService {
     console.log('Requesting article id=' + id);
     const url = `${this.articleUrl}/${id}`;
     return this.http.get<Article>(url, this.httpOptions);
+      // .pipe(
+      //   tap(res => console.log('fetched ' + res.length + ' articles')),
+      //   catchError(this.handleError<Article[]>('getArticles', []))
+      // );
 
   }
 
@@ -94,4 +99,22 @@ export class NewsService {
     console.log(article);
     return this.http.post<Article>(this.articleUrl, article, this.httpOptions);
   }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      console.error(`${operation} failed: ${error.message}`);
+      console.error(error); // log to console instead
+
+      this.error = `${operation} failed: ${error.message}`;
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
+
+  getError (): string | undefined {
+    return this.error; 
+  }
+
 }
