@@ -9,7 +9,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/welcome', pathMatch: 'full' },
-  { path: 'article', component: ArticleComponent },
+  { path: 'article/ :id', component: ArticleComponent },
   { path: 'articleform', component: ArticleFormComponent },
   { path: 'landingpage', component: AppComponent },
   { path: 'articleview', component: ArticleViewComponent },
