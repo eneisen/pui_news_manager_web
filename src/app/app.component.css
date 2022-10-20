@@ -1,5 +1,5 @@
-.user input [type="text"],
-.user textarea {
+.app input [type="text"],
+.app textarea {
     width: 100%; min-width: 100%; 
     box-sizing: border-box;
     padding: 4px;

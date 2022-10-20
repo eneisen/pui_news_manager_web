@@ -6,10 +6,16 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ArticleViewComponent } from './article-view/article-view.component';
+import { ArticleFormComponent } from './article-form/article-form.component';
+import { ArticleComponent } from './article/article.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ArticleViewComponent,
+    ArticleFormComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,
