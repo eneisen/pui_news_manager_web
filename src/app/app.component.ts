@@ -12,6 +12,7 @@ export class AppComponent implements OnInit{
   title = 'news_manager_web';
 
   user: User = {
+    id_user: 0,
     username: '',
     password: '',
   }
