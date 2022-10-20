@@ -32,9 +32,12 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.api.getArticles().subscribe(result => {
-console.log(result)
-this.allArticleData = result;
-// this.allArticleData = this.allArticleData.filter(data => data.category == "Sports")
+      console.log(result)
+      this.allArticleData = result;
+      // this.allArticleData = this.allArticleData.filter(data => data.category == "Sports")
+      // this.api.getArticle(42).subscribe(result => {
+      //   console.log(result);
+      // })
     })
   }
 
