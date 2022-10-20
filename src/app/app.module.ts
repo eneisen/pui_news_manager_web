@@ -10,6 +10,7 @@ import { ArticleViewComponent } from './article-view/article-view.component';
 import { ArticleFormComponent } from './article-form/article-form.component';
 import { ArticleComponent } from './article/article.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { ArticleEditComponent } from './article-edit/article-edit.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MainPageComponent } from './main-page/main-page.component';
     ArticleViewComponent,
     ArticleFormComponent,
     ArticleComponent,
-    MainPageComponent
+    MainPageComponent,
+    ArticleEditComponent
   ],
   imports: [
     HttpClientModule,
