@@ -14,15 +14,23 @@ export class ArticleComponent implements OnInit {
 
   article: any;
 
-  constructor(private newsservice: NewsService, @Inject(ActivatedRoute) private route : ActivatedRoute) {
-    newsservice.getArticle(Number(this.route.snapshot.paramMap.get('id'))).subscribe(result => {
-      console.log(result);
-      this.article = result;
-    })
-  }
+  constructor (private api: NewsService, @Inject(ActivatedRoute) private route : ActivatedRoute) {}
+
+  // constructor(private newsservice: NewsService, @Inject(ActivatedRoute) private route : ActivatedRoute) {
+  //   newsservice.getArticle(Number(this.route.snapshot.paramMap.get('id'))).subscribe(result => {
+  //     console.log(result);
+  //     this.article = result;
+  //   })
+  // }
 
   ngOnInit(): void {
     console.log("TEST")
+    this.api.getArticle(Number(this.route.snapshot.paramMap.get('id'))).subscribe(result => {
+      // this.api.getArticle(45).subscribe(result => {
+      console.log(result);
+      this.article = result;
+    })
+
   }
 
 }
