@@ -4,15 +4,14 @@ import { AppComponent } from './app.component';
 import { AppModule } from './app.module';
 import { ArticleFormComponent } from './article-form/article-form.component';
 import { ArticleComponent } from './article/article.component';
+import { ArticleViewComponent } from './article-view/article-view.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: 'article', component: ArticleComponent },
   { path: 'articleform', component: ArticleFormComponent },
   { path: 'landingpage', component: AppComponent },
-  // { path: 'emailslist', component: EmailsListComponent },
-  // { path: 'emailviewer/:id', component: EmailViewerComponent },
-  // { path: 'emailform', component: EmailFormComponent },
+  { path: 'articleview', component: ArticleViewComponent },
 ];
 
 @NgModule({

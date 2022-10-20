@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Article } from '../Interfaces/Article';
 import { NewsService } from '../services/news.service';
@@ -11,9 +11,9 @@ import { NewsService } from '../services/news.service';
 export class ArticleFormComponent implements OnInit {
 
   article: Article
-  // articleList: Article[]
+  // articleList: Article[] = [];
 
- articleForm: any
+ @ViewChild('articleForm') articleForm: any
 
   constructor(private newsservice: NewsService, private router: Router) {
     this.article = { id: 0, title: "", subtitle: "", category: "", abstract: "", body: "" }
@@ -29,7 +29,7 @@ export class ArticleFormComponent implements OnInit {
     })
     window.alert('The article "${this.article.title}" has been saved')
     this.articleForm.reset()
-    this.router.navigate(['/emailslist'])
+    this.router.navigate(['/articlelist'])
   }
 
 }

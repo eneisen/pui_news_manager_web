@@ -33,8 +33,8 @@
             [ngClass]="body.valid ? 'valid-input': 'invalid-input'">
     </textarea>
     </div>
-    <button class="btn btn-primary btn-sm mt-3 me-2" type="submit" [disabled]="!articleForm.form.valid">Add
-        email</button>
+    <button class="btn btn-primary btn-sm mt-3 me-2" type="submit" [disabled]="!articleForm.form.valid">Save article
+    </button>
     <button class="btn btn-primary btn-sm mt-3" type="button" (click)="articleForm.reset()">Reset form</button>
 </form>
 <a routerLink="/landingpage"> Go Back</a>
