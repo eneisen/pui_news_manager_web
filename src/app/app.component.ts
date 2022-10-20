@@ -13,6 +13,7 @@ import { LoginService } from './services/login.service';
 })
 export class AppComponent implements OnInit{
   title = 'news_manager_web';
+  loggedin: boolean=false;
 
   user: User = {
     id_user: 0,
@@ -57,7 +58,8 @@ export class AppComponent implements OnInit{
 
   login (name: string, pwd: string): void {
     this.loginservice.login(name, pwd)
-    console.log(name)
+    this.loggedin=true
+    console.log(this.user)
   }
 
   ngOnInit(): void {

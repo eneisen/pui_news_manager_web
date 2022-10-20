@@ -6,11 +6,15 @@
     <label for="Username"> </label>
     <input type="text" id="Username" [(ngModel)]="user.username" placeholder="Username" size="10"
       style="margin-right:10px;" />
+    <!-- <div>*ngIf="this.loggedin==true" -> style="visibility: hidden;"</div> -->
     <label for="password"> </label>
     <input type="password" id="password" [(ngModel)]="user.password" placeholder="Password" size="10"
-      style="margin-right:10px;" />
+      style="margin-right:10px; visibility: visible;" />
+    <!-- <div>*ngIf="this.loggedin==true" ->
+      Username.style="visibility: hidden;" </div> -->
     <a class="btn btn-dark btn-sm" (click)="login(user.username, user.password)">Login</a>
-    <!-- <div>Hallo {{user.username}}</div> -->
+    <!-- <label style="visibility: hidden"> Hallo {{user.username}}
+      *ngIf="loggedin==true" -> <label style="visibility: visible;" /> -->
   </div>
   <router-outlet></router-outlet>
 </div>
