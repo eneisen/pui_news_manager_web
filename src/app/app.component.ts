@@ -24,6 +24,31 @@ export class AppComponent implements OnInit{
 
   constructor (private api: NewsService) {}
   allArticleData: any[] = [];
+  filteredArticles: any[]= [];
+
+  applyFilters(filter: string){
+    //PROBLEM: this.mainpage.allArticleData wird überschrieben und kommt nicht wieder auf den Originalzustand
+    console.log("Filtering started: " + filter)
+    console.log("vorher: ")
+    console.log(this.allArticleData)
+    switch (filter){
+      case "Technology":
+      case "National":
+      case "Economy":
+      case "Sports":
+        console.log("Kategorie erkannt: " + filter)
+        this.filteredArticles = this.allArticleData.filter(data => data.category == filter);
+        break;
+      case "":
+        this.filteredArticles = this.allArticleData;
+        break;
+      default:
+        this.filteredArticles = this.allArticleData.filter(data => data.abstract.contains(filter));
+    }
+    console.log("nachher: ")
+    console.log(this.filteredArticles)
+
+  }
 
   login (): void {
     this.user.username = "";
