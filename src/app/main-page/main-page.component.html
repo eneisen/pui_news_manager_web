@@ -14,6 +14,7 @@
                 <a class="btn btn-dark btn-sm" href="{{data.url}}" target="_blank"
                     [routerLink]="['/article', data.id]">Read
                     More</a>
+                <a class="btn btn-dark btn-sm" (click)="removeArticle(data.id)">Remove</a>
             </div>
 
         </div>

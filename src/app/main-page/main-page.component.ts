@@ -38,4 +38,13 @@ this.allArticleData = result;
     })
   }
 
+  removeArticle(id: number): void {
+    this.api.deleteArticle(id)
+    console.log("Test")
+    // this.api.getArticles().subscribe(result => {
+    //   console.log(result)
+    //   this.allArticleData = result;
+    //       })
+  }
+
 }
