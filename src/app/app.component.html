@@ -1,13 +1,14 @@
-<h1 align="center">EFM-Newspaper</h1>
-
-<div align="right">
-  <label for="Username"> </label>
-  <input type="text" id="Username" [(ngModel)]="user.username" placeholder="Username" size="10" />
-  <label for="password"> </label>
-  <input type="text" id="password" [(ngModel)]="user.password" placeholder="Password" size="10" />
-  <button (click)="login()">Login</button>
+<div>
+  <img align="left" src="https://i.ibb.co/kxvmK9f/image.png" alt="EFM News Logo" style="width:10%;height:auto;">
+  <h1 align="center">EFM-Newspaper</h1>
+  <div align="right">
+    <label for="Username"> </label>
+    <input type="text" id="Username" [(ngModel)]="user.username" placeholder="Username" size="10" />
+    <label for="password"> </label>
+    <input type="text" id="password" [(ngModel)]="user.password" placeholder="Password" size="10" />
+    <button (click)="login()">Login</button>
+  </div>
 </div>
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="">EFM-Newspaper</a>
@@ -41,6 +42,11 @@
     </div>
   </div>
 </nav>
+<div class="container-fluid mt-3">
+  <h4>
+    <marquee>Breaking news provided by Enrico, Finn and Marek</marquee>
+  </h4>
+</div>
 <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <ul>
     <a style="text-decoration: none;"></a>
