@@ -23,6 +23,7 @@ export class AppComponent implements OnInit{
   }
 
   constructor (private api: NewsService) {}
+  allArticleData: any[] = [];
 
   login (): void {
     this.user.username = "";
@@ -32,6 +33,7 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     this.api.getArticles().subscribe(result => {
 console.log(result)
+this.allArticleData = result;
     })
   }
 }
