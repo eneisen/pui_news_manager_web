@@ -4,3 +4,7 @@
         article.image_data " alt="image" style="max-height:130mm;width:auto">
 <h6>{{article.subtitle}}</h6>
 {{article.body}}
+<div id="inlineElems">
+    <p>{{"Article published on " + article.update_date}}</p>
+    <p>{{"Article created by: " + article.username}}</p>
+</div>
