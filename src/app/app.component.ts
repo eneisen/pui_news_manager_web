@@ -34,6 +34,7 @@ export class AppComponent implements OnInit{
     this.api.getArticles().subscribe(result => {
 console.log(result)
 this.allArticleData = result;
+// this.allArticleData = this.allArticleData.filter(data => data.category == "Sports")
     })
   }
 }
