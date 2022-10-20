@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Route, Router } from '@angular/router';
 import { Article } from '../Interfaces/Article';
 import { NewsService } from '../services/news.service';
 import * as _ from 'lodash';
+import { ActivatedRoute } from '@angular/router';
+import { Inject } from '@angular/core';
 
 @Component({
   selector: 'app-article-edit',
@@ -11,12 +13,13 @@ import * as _ from 'lodash';
 })
 export class ArticleEditComponent implements OnInit {
 
-  article: Article
+  article: any
+  imagechange: boolean= false
   // articleList: Article[] = [];
 
  @ViewChild('articleedit') articleedit: any
 
-  constructor(private newsservice: NewsService, private router: Router) {
+  constructor(private api: NewsService, @Inject(ActivatedRoute) private route : ActivatedRoute, private newsservice: NewsService, private router: Router) {
     this.article = { id: 0, title: "", subtitle: "", category: "", abstract: "", body: "" }
     // this.articleList = this.newsservice.getArticles()
     this.isImageSaved = false;
@@ -34,6 +37,11 @@ export class ArticleEditComponent implements OnInit {
    image_data: string; 
 
   ngOnInit(): void {
+    this.api.getArticle(Number(this.route.snapshot.paramMap.get('id'))).subscribe(result => {
+      // this.api.getArticle(45).subscribe(result => {
+      console.log(result);
+      this.article = result;
+    })
   }
 
   fileChangeEvent(fileInput: any) {
@@ -72,11 +80,11 @@ export class ArticleEditComponent implements OnInit {
     return true; 
   }
 
-  saveEdit(): void {
+  saveEdit(id:number): void {
     this.newsservice.updateArticle({
-      id: this.article.id, title: this.article.title, subtitle: this.article.title, category: this.article.category, abstract: this.article.abstract,  body: this.article.body
+      id: id, title: this.article.title, subtitle: this.article.title, category: this.article.category, abstract: this.article.abstract,  body: this.article.body
     })
-    window.alert('The article "${this.article.title}" has been saved')
+    window.alert("The article '" + this.article.title + "' has been saved");
     this.articleedit.reset()
     this.router.navigate(['/articlelist'])
   }

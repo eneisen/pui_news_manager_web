@@ -1,30 +1,33 @@
 <h3>Article Edit Form</h3><br>
-<form #articleform="ngForm" (ngSubmit)="saveEdit()" class="mb-5">
+<form #articleform="ngForm" (ngSubmit)="saveEdit(article.id)" class="mb-5">
     <div class="form-group">
         <label> Title<abbr title="required">*</abbr> </label>
         <input class="form-control input-field mb-2" type="text" required
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="article.title" name="from" #from="ngModel"
-            [ngClass]="from.valid ? 'valid-input': 'invalid-input'">
-        <div *ngIf="from.invalid && !from.pristine" class="text-danger mb-2"> Please provide valid title</div>
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="article.title" name="title"
+            value={{article.title}} #from="ngModel" [ngClass]="from.valid ? 'valid-input': 'invalid-input'">
+        <!-- <div *ngIf="from.invalid && !from.pristine" class="text-danger mb-2"> Please provide valid title</div> -->
     </div>
     <div class="form-group">
         <label> Subtitle<abbr title="required">*</abbr> </label>
         <input class="form-control input-field mb-2" type="text" required
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="article.subtitle" name="to" #to="ngModel"
-            [ngClass]="to.valid ? 'valid-input': 'invalid-input'">
-        <div *ngIf="to.invalid && !to.pristine" class="text-danger mb-2"> Please provide valid subtitle</div>
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="article.subtitle" name="subtitle"
+            value={{article.subtitle}} #to="ngModel" [ngClass]="to.valid ? 'valid-input': 'invalid-input'">
+        <!-- <div *ngIf="to.invalid && !to.pristine" class="text-danger mb-2"> Please provide valid subtitle</div> -->
     </div>
-    <div class="form-group">
-        <input type="file" (change)="fileChangeEvent($event)" class="fileInputProfile">
-        <div *ngIf="imageError">{{ imageError }} </div>
-    </div>
-
-    <h3> The selected image is: </h3>
-
+    <h4>The selected image is:</h4>
+    <img [src]="'data:' + article.image_media_type + ';base64,' +
+    article.image_data " alt="image" style="max-height:130mm;width:auto">
     <img style="width:500px; height:500px;" [src]="'data:' + image_media_type + ';base64,' + image_data ">
+    <div class="form-group">
+        <input type="file" (change)="fileChangeEvent($event)" class="fileInputProfile" imagechange=true>
+        <div *ngIf="imageError">{{ imageError }} </div>
+        <div *ngIf="imagechange==true" -> <img style="width:500px; height:500px;"
+                [src]="'data:' + image_media_type + ';base64,' + image_data "> </div>
+    </div>
     <br>
     <label for="Category">Choose a Category:</label>
     <select name="Category" id="category">
+        <option value={{article.category}}>{{article.category}}</option>
         <option value="National">National</option>
         <option value="Economy">Economy</option>
         <option value="Sports">Sports</option>
@@ -32,18 +35,20 @@
     </select>
     <div class="form-group">
         <label> Abstract </label>
-        <textarea class="form-control input-field" [(ngModel)]="article.abstract" name="body" #body="ngModel"
-            [ngClass]="body.valid ? 'valid-input': 'invalid-input'">
+        <textarea class="form-control input-field" [(ngModel)]="article.abstract" name="abstract"
+            value={{article.abstract}} #body="ngModel" [ngClass]="body.valid ? 'valid-input': 'invalid-input'">
     </textarea>
     </div>
     <div class="form-group">
         <label> Body </label>
-        <textarea class="form-control input-field" [(ngModel)]="article.body" name="body" #body="ngModel"
-            [ngClass]="body.valid ? 'valid-input': 'invalid-input'">
+        <textarea class="form-control input-field" [(ngModel)]="article.body" name="body" value={{article.body}}
+            #body="ngModel" [ngClass]="body.valid ? 'valid-input': 'invalid-input'">
     </textarea>
     </div>
-    <button class="btn btn-primary btn-sm mt-3 me-2" type="submit" [disabled]="!articleedit.form.valid">Save article
+    <button class="btn btn-dark btn-sm" type="submit" [disabled]="!articleedit.form.valid"
+        style="background-color:green;">Save article
     </button>
-    <button class="btn btn-primary btn-sm mt-3" type="button" (click)="articleedit.reset()">Reset form</button>
+    <button class="btn btn-dark btn-sm" type="button" (click)="articleedit.reset()"
+        style="background-color:rgb(228, 2, 2);">Reset form</button>
 </form>
-<a routerLink="/mainpage"> Go Back</a>
+<button class="btn btn-dark btn-sm" type="button" routerLink="/mainpage">Go Back</button>
