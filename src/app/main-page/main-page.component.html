@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" routerLink="/mainpage">EFM News</a>
+        <a class="navbar-brand" (click)="applyFilters('')" routerLink="/mainpage">EFM News</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -57,7 +57,7 @@
                     <a class="btn btn-dark btn-sm" (click)="removeArticle(data.id)" style="margin-right:5px;">Remove</a>
                     <a class="btn btn-dark btn-sm" [routerLink]="['/articleedit', data.id]">Edit</a>
                 </div>
-                <a class="btn btn-dark btn-sm" href="{{data.url}}" target="_self" style="background-color:green;"
+                <a class="btn btn-dark btn-sm" target="_self" style="background-color:green;"
                     [routerLink]="['/article', data.id]">Read
                     More</a>
             </div>
