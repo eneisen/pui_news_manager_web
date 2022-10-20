@@ -13,7 +13,8 @@ import { Inject } from '@angular/core';
 })
 export class ArticleEditComponent implements OnInit {
 
-  article: Article
+  article: any
+  imagechange: boolean= false
   // articleList: Article[] = [];
 
  @ViewChild('articleedit') articleedit: any
@@ -79,11 +80,11 @@ export class ArticleEditComponent implements OnInit {
     return true; 
   }
 
-  saveEdit(): void {
+  saveEdit(id:number): void {
     this.newsservice.updateArticle({
-      id: this.article.id, title: this.article.title, subtitle: this.article.title, category: this.article.category, abstract: this.article.abstract,  body: this.article.body
+      id: id, title: this.article.title, subtitle: this.article.title, category: this.article.category, abstract: this.article.abstract,  body: this.article.body
     })
-    window.alert('The article "${this.article.title}" has been saved')
+    window.alert("The article '" + this.article.title + "' has been saved");
     this.articleedit.reset()
     this.router.navigate(['/articlelist'])
   }

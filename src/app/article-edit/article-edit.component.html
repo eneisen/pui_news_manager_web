@@ -1,5 +1,5 @@
 <h3>Article Edit Form</h3><br>
-<form #articleform="ngForm" (ngSubmit)="saveEdit()" class="mb-5">
+<form #articleform="ngForm" (ngSubmit)="saveEdit(article.id)" class="mb-5">
     <div class="form-group">
         <label> Title<abbr title="required">*</abbr> </label>
         <input class="form-control input-field mb-2" type="text" required
@@ -14,17 +14,20 @@
             value={{article.subtitle}} #to="ngModel" [ngClass]="to.valid ? 'valid-input': 'invalid-input'">
         <!-- <div *ngIf="to.invalid && !to.pristine" class="text-danger mb-2"> Please provide valid subtitle</div> -->
     </div>
-    <div class="form-group">
-        <input type="file" (change)="fileChangeEvent($event)" class="fileInputProfile">
-        <div *ngIf="imageError">{{ imageError }} </div>
-    </div>
-
-    <h3> The selected image is: </h3>
-
+    <h4>The selected image is:</h4>
+    <img [src]="'data:' + article.image_media_type + ';base64,' +
+    article.image_data " alt="image" style="max-height:130mm;width:auto">
     <img style="width:500px; height:500px;" [src]="'data:' + image_media_type + ';base64,' + image_data ">
+    <div class="form-group">
+        <input type="file" (change)="fileChangeEvent($event)" class="fileInputProfile" imagechange=true>
+        <div *ngIf="imageError">{{ imageError }} </div>
+        <div *ngIf="imagechange==true" -> <img style="width:500px; height:500px;"
+                [src]="'data:' + image_media_type + ';base64,' + image_data "> </div>
+    </div>
     <br>
     <label for="Category">Choose a Category:</label>
     <select name="Category" id="category">
+        <option value={{article.category}}>{{article.category}}</option>
         <option value="National">National</option>
         <option value="Economy">Economy</option>
         <option value="Sports">Sports</option>
@@ -46,4 +49,4 @@
     </button>
     <button class="btn btn-primary btn-sm mt-3" type="button" (click)="articleedit.reset()">Reset form</button>
 </form>
-<a routerLink="/mainpage"> Go Back</a>
+<button class="btn btn-primary btn-sm mt-3" type="button" routerLink="/mainpage">Go Back</button>
