@@ -8,7 +8,7 @@
     <label for="password"> </label>
     <input type="text" id="password" [(ngModel)]="user.password" placeholder="Password" size="10"
       style="margin-right:10px;" />
-    <a class="btn btn-dark btn-sm" routerLink="'/article'">Login</a>
+    <a class="btn btn-dark btn-sm" (click)="login(user.username, user.password)">Login</a>
   </div>
   <router-outlet></router-outlet>
 </div>
