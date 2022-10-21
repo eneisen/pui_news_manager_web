@@ -72,3 +72,10 @@
   display: flex;
   justify-content: space-between;
 }
+
+.center {
+  margin: auto;
+  width: 40%;
+  padding: 10px;
+  text-align: center;
+  }
