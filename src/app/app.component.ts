@@ -25,42 +25,7 @@ export class AppComponent implements OnInit{
   }
 
   constructor (private api: NewsService, private mainpage: MainPageComponent) {}
-  // allArticleData: any[] = [];
-  // filteredArticles: any[]= [];
-
-  // applyFilters(filter: string): void{
-  //   console.log(this.mainpage.allArticleData)
-  //   this.mainpage.applyFilters(filter);
-  //   //PROBLEM: this.mainpage.allArticleData wird überschrieben und kommt nicht wieder auf den Originalzustand
-  //   // console.log("Filtering started: " + filter)
-  //   // console.log("vorher: ")
-  //   // console.log(this.mainpage.allArticleData)
-  //   // switch (filter){
-  //   //   case "Technology":
-  //   //   case "National":
-  //   //   case "Economy":
-  //   //   case "Sports":
-  //   //     console.log("Kategorie erkannt: " + filter)
-  //   //     this.mainpage.filteredArticles = this.mainpage.allArticleData.filter(data => data.category == filter);
-  //   //     break;
-  //   //   case "":
-  //   //     this.mainpage.filteredArticles = this.mainpage.allArticleData;
-  //   //     break;
-  //   //   default:
-  //   //     this.mainpage.filteredArticles = this.mainpage.allArticleData.filter(data => data.abstract.contains(filter));
-  //   // }
-  //   // console.log("nachher: ")
-  //   // console.log(this.mainpage.filteredArticles)
-
-  // }
-
 
   ngOnInit(): void {
-//     this.api.getArticles().subscribe(result => {
-// console.log(result)
-// this.allArticleData = result;
-// this.applyFilters("");
-// this.allArticleData = this.allArticleData.filter(data => data.category == "Sports")
-    // })
   }
 }

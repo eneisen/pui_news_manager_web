@@ -51,11 +51,7 @@
         <div class="box">
             <img [src]="'data:' + data.thumbnail_media_type + ';base64,' +
         data.thumbnail_image" alt="image">
-            <!-- <img src="https://i.ibb.co/kxvmK9f/image.png" alt="image" style="width:100%;height:auto;"> -->
-            <!-- <h5 class="mt-3 mb-3">{{ data.title | shorten:50 }}</h5> -->
             <h5 class="mt-3 mb-3">{{ data.title}}</h5>
-            <!-- <h6 class="mt-3 mb-3">{{"Categorie: " + data.category}}</h6> -->
-            <!-- <h6 class="mt-3 mb-3">{{data.subtitle}}</h6> -->
             <h6 class="mt-3 mb-3" [innerHtml]=data.abstract></h6>
             <h6 class="mt-3 mb-3">{{"Categorie: " + data.category}}</h6>
             <div id="inlineElems">
