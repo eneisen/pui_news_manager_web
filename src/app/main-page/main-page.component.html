@@ -52,7 +52,8 @@
         style="margin-right:10px; visibility: visible;" />
     <!-- <div>*ngIf="this.loggedin==true" ->
       Username.style="visibility: hidden;" </div> -->
-    <a class="btn btn-dark btn-sm" (click)="login(user.username, user.password)">Login</a>
+    <a class="btn btn-dark btn-sm" (click)="login(user.username, user.password)"
+        [routerLink]="['/mainpage-login', user.username]">Login</a>
     <!-- <label style="visibility: hidden"> Hallo {{user.username}}
       *ngIf="loggedin==true" -> <label style="visibility: visible;" /> -->
 </div>

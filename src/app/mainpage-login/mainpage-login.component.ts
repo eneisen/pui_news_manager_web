@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../Interfaces/User';
 import { Filter } from '../Interfaces/Filter';
 import { NewsService } from '../services/news.service';
+import { MainPageComponent } from '../main-page/main-page.component';
+import { Inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Route } from '@angular/router';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-mainpage-login',
@@ -11,6 +16,7 @@ import { NewsService } from '../services/news.service';
 export class MainpageLoginComponent implements OnInit {
 
   title = 'news_manager_web';
+  username = "";
 
   user: User = {
     id_user: 0,
@@ -22,21 +28,19 @@ export class MainpageLoginComponent implements OnInit {
     filtertext: '',
   }
 
-  constructor (private api: NewsService) {}
+  constructor (private api: NewsService, @Inject(ActivatedRoute) private route : ActivatedRoute, private loginservice: LoginService) {}
   allArticleData: any[] = [];
   filteredArticles: any[]= [];
 
 
-  login (): void {
-    this.user.username = "";
-    this.user.password = "";
-  }
-
-  ngOnInit(): void {
+  ngOnInit(): void {      
+    this.user.username = this.route.snapshot.paramMap.get('name')??"testuser";
+      console.log(this.user)
     this.api.getArticles().subscribe(result => {
       console.log(result)
       this.allArticleData = result;
       this.filteredArticles = result;
+
       // this.allArticleData = this.allArticleData.filter(data => data.category == "Sports")
       // this.api.getArticle(42).subscribe(result => {
       //   console.log(result);
@@ -58,14 +62,14 @@ export class MainpageLoginComponent implements OnInit {
     //PROBLEM: this.mainpage.allArticleData wird überschrieben und kommt nicht wieder auf den Originalzustand
     filter = filter.toLowerCase()
     console.log("Filtering started: " + filter)
-    console.log("vorher: ")
+    console.log("before: ")
     console.log(this.allArticleData)
     switch (filter){
       case "technology":
       case "national":
       case "economy":
       case "sports":
-        console.log("Kategorie erkannt: " + filter)
+        console.log("Category found: " + filter)
         this.filteredArticles = this.allArticleData.filter(data => data.category.toLowerCase() == filter);
         break;
       case "":
@@ -75,7 +79,7 @@ export class MainpageLoginComponent implements OnInit {
         console.log("default")
         this.filteredArticles = this.allArticleData.filter(data => data.abstract.toLowerCase().includes(filter) || data.title.toLowerCase().includes(filter) || data.subtitle.toLowerCase().includes(filter) );
     }
-    console.log("nachher: ")
+    console.log("after: ")
     console.log(this.filteredArticles)
 
   }

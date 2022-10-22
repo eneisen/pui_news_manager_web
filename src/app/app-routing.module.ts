@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'landingpage', component: AppComponent },
   { path: 'articleview', component: ArticleViewComponent },
   { path: 'mainpage', component: MainPageComponent },
-  { path: 'mainpage-login', component: MainpageLoginComponent },
+  { path: 'mainpage-login/:name', component: MainpageLoginComponent },
   { path: 'articleedit/:id', component: ArticleEditComponent },
 ];
 

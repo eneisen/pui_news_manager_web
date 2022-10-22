@@ -59,14 +59,14 @@ export class MainPageComponent implements OnInit {
     //PROBLEM: this.mainpage.allArticleData wird überschrieben und kommt nicht wieder auf den Originalzustand
     filter = filter.toLowerCase()
     console.log("Filtering started: " + filter)
-    console.log("vorher: ")
+    console.log("before: ")
     console.log(this.allArticleData)
     switch (filter){
       case "technology":
       case "national":
       case "economy":
       case "sports":
-        console.log("Kategorie erkannt: " + filter)
+        console.log("Category found: " + filter)
         this.filteredArticles = this.allArticleData.filter(data => data.category.toLowerCase() == filter);
         break;
       case "":
@@ -76,7 +76,7 @@ export class MainPageComponent implements OnInit {
         console.log("default")
         this.filteredArticles = this.allArticleData.filter(data => data.abstract.toLowerCase().includes(filter) || data.title.toLowerCase().includes(filter) || data.subtitle.toLowerCase().includes(filter) );
     }
-    console.log("nachher: ")
+    console.log("after: ")
     console.log(this.filteredArticles)
 
   }
