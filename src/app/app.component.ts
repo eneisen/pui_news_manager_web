@@ -3,7 +3,6 @@ import { User } from './Interfaces/User';
 import { Filter } from './Interfaces/Filter';
 import { NewsService } from './services/news.service';
 import { MainPageComponent } from './main-page/main-page.component';
-import { LoginService } from './services/login.service';
 
 
 @Component({
@@ -25,7 +24,7 @@ export class AppComponent implements OnInit{
     filtertext: '',
   }
 
-  constructor (private api: NewsService, private mainpage: MainPageComponent, private loginservice: LoginService) {}
+  constructor (private api: NewsService, private mainpage: MainPageComponent) {}
   // allArticleData: any[] = [];
   // filteredArticles: any[]= [];
 
@@ -55,9 +54,6 @@ export class AppComponent implements OnInit{
 
   // }
 
-  login (name: string, pwd: string): void {
-    this.loginservice.login(name, pwd)
-  }
 
   ngOnInit(): void {
 //     this.api.getArticles().subscribe(result => {
