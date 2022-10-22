@@ -1,20 +1,6 @@
 <div>
   <img align="left" src="https://i.ibb.co/kxvmK9f/image.png" alt="EFM News Logo"
-    style="width:15%;min-width:120px;max-width:220px;height:auto;" routerLink="/mainpage">
+    style="width:15%;min-width:120px;max-width:160px;height:auto;" routerLink="/mainpage">
   <h1 class="center" routerLink="/mainpage">EFM News</h1>
-  <div align="right" style="margin-right:10px;">
-    <label for="Username"> </label>
-    <input type="text" id="Username" [(ngModel)]="user.username" placeholder="Username" size="10"
-      style="margin-right:10px;" />
-    <!-- <div>*ngIf="this.loggedin==true" -> style="visibility: hidden;"</div> -->
-    <label for="password"> </label>
-    <input type="password" id="password" [(ngModel)]="user.password" placeholder="Password" size="10"
-      style="margin-right:10px; visibility: visible;" />
-    <!-- <div>*ngIf="this.loggedin==true" ->
-      Username.style="visibility: hidden;" </div> -->
-    <a class="btn btn-dark btn-sm" (click)="login(user.username, user.password)">Login</a>
-    <!-- <label style="visibility: hidden"> Hallo {{user.username}}
-      *ngIf="loggedin==true" -> <label style="visibility: visible;" /> -->
-  </div>
   <router-outlet></router-outlet>
 </div>
