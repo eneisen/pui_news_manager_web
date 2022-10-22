@@ -1,6 +1,7 @@
 <div class="container-fluid">
     <h3>Article Edit Form</h3><br>
-    <form #articleform="ngForm" (ngSubmit)="saveEdit(article.id)" class="mb-5">
+    <form #articleform="ngForm"
+        (ngSubmit)="saveEdit(article.id, article.title, article.subtitle, article.abstract, article.body)" class="mb-5">
         <div class="form-group">
             <label> Title<abbr title="required">*</abbr> </label>
             <input class="form-control input-field mb-2" type="text" required

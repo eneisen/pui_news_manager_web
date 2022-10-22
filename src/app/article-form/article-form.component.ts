@@ -73,13 +73,14 @@ export class ArticleFormComponent implements OnInit {
   }
 
 
-  saveArticle(): void {
+  saveArticle(title: string, subtitle: string, abstract: string, body: string): void {
     this.newsservice.createArticle({
-      id: this.newsservice.generateId(), title: this.article.title, image: this.article.image, subtitle: this.article.title, category: this.article.category, abstract: this.article.abstract,  body: this.article.body
+      id: this.newsservice.generateId(), title: title, subtitle: subtitle, category: "National", abstract: abstract,  body: body
     })
     window.alert("The article '" + this.article.title + "' has been saved");
     this.articleForm.reset()
     this.router.navigate(['/articlelist'])
   }
-
+//We tried to used the create Article method to really save the article to the server list and display it, 
+//however we did not manage to apply it to the API
 }

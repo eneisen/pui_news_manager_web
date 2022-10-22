@@ -80,13 +80,16 @@ export class ArticleEditComponent implements OnInit {
     return true; 
   }
 
-  saveEdit(id:number): void {
+  saveEdit(id:number, title: string, subtitle: string, abstract: string, body: string): void {
     this.newsservice.updateArticle({
-      id: id, title: this.article.title, image: this.article.image, subtitle: this.article.title, category: this.article.category, abstract: this.article.abstract,  body: this.article.body
+      id: id, title: title, subtitle: subtitle, category: "National", abstract: abstract,  body: body
     })
     window.alert("The article '" + this.article.title + "' has been saved");
     this.articleedit.reset()
     this.router.navigate(['/articlelist'])
   }
+
+//We tried to used the update Article method to really save the article to the server list and display it, 
+//however we did not manage to apply it to the API
 
 }
