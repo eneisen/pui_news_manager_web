@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" routerLink="/mainpage">EFM News</a>
+        <a class="navbar-brand" (click)="applyFilters('')" routerLink="/mainpage">EFM News</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="margin-bottom:5px;">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -30,8 +30,10 @@
         </div>
         <div class="container-fluid">
             <a style="float: right" class="btn btn-dark btn-sm" [routerLink]="['/articleform']">Create Article</a>
+            <a style="float: right;margin-right:10px;" class="btn btn-dark btn-sm"
+                (click)="applyFilters(filter.filtertext)">Search!</a>
             <input type="text" id="filter" [(ngModel)]="filter.filtertext" placeholder="Search here" size="10"
-                style="float: right;margin-right:10px;" (change)="applyFilters(filter.filtertext)" />
+                style="float: right;margin-right:10px;" />
         </div>
     </div>
 </nav>
@@ -57,7 +59,7 @@
                     <a class="btn btn-dark btn-sm" (click)="removeArticle(data.id)" style="margin-right:5px;">Remove</a>
                     <a class="btn btn-dark btn-sm" [routerLink]="['/articleedit', data.id]">Edit</a>
                 </div>
-                <a class="btn btn-dark btn-sm" href="{{data.url}}" target="_self" style="background-color:green;"
+                <a class="btn btn-dark btn-sm" target="_self" style="background-color:green;"
                     [routerLink]="['/article', data.id]">Read
                     More</a>
             </div>
