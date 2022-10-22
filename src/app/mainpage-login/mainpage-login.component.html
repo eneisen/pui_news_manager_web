@@ -42,6 +42,10 @@
         <marquee>--- Breaking news provided by Enrico, Finn and Marek ---</marquee>
     </h4>
 </div>
+<div>
+    <a style="float: right" class="btn btn-dark btn-sm" [routerLink]="['/mainpage']">Log Out</a>
+    <a style="float: right; text-decoration: none;" class="text">Hallo {{this.user}} </a>
+</div>
 <div class="row mt-3">
     <div *ngFor="let data of filteredArticles" class="col-lg-3 mt-3 mb-3">
         <div class="box">
