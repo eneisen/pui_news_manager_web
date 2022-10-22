@@ -6,6 +6,7 @@ import { ArticleFormComponent } from './article-form/article-form.component';
 import { ArticleComponent } from './article/article.component';
 import { ArticleViewComponent } from './article-view/article-view.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { MainpageLoginComponent } from './mainpage-login/mainpage-login.component';
 import { ArticleEditComponent } from './article-edit/article-edit.component';
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'landingpage', component: AppComponent },
   { path: 'articleview', component: ArticleViewComponent },
   { path: 'mainpage', component: MainPageComponent },
+  { path: 'mainpage-login', component: MainpageLoginComponent },
   { path: 'articleedit/:id', component: ArticleEditComponent },
 ];
 

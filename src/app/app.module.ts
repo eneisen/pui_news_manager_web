@@ -11,6 +11,7 @@ import { ArticleFormComponent } from './article-form/article-form.component';
 import { ArticleComponent } from './article/article.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { ArticleEditComponent } from './article-edit/article-edit.component';
+import { MainpageLoginComponent } from './mainpage-login/mainpage-login.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ArticleEditComponent } from './article-edit/article-edit.component';
     ArticleFormComponent,
     ArticleComponent,
     MainPageComponent,
-    ArticleEditComponent
+    ArticleEditComponent,
+    MainpageLoginComponent
   ],
   imports: [
     HttpClientModule,
