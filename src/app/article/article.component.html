@@ -1,6 +1,5 @@
 <div class="container-fluid">
     <h5>{{article.title}}</h5>
-    <!-- <div id="inlineElems"> -->
     <div>
         <img [src]="'data:' + article.image_media_type + ';base64,' +
             article.image_data " alt="image" style="max-height:130mm;max-width:100%;margin-right:10px;">
@@ -10,9 +9,6 @@
         <div style="margin-bottom:10px;margin-right:10px;" [innerHtml]=article.body></div>
     </div>
 
-
-
-    <!-- </div> -->
     <div id="inlineElems">
         <p>{{"Article published on " + article.update_date}}</p>
         <p>{{"Article created by: " + article.username}}</p>

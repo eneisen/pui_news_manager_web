@@ -40,26 +40,15 @@ export class MainpageLoginComponent implements OnInit {
       console.log(result)
       this.allArticleData = result;
       this.filteredArticles = result;
-
-      // this.allArticleData = this.allArticleData.filter(data => data.category == "Sports")
-      // this.api.getArticle(42).subscribe(result => {
-      //   console.log(result);
-      // })
     })
   }
 
   removeArticle(id: number): void {
     this.api.deleteArticle(id)
     console.log("Test")
-    // this.api.getArticles().subscribe(result => {
-    //   console.log(result)
-    //   this.allArticleData = result;
-    //       })
   }
 
   applyFilters(filter: string): void{
-    
-    //PROBLEM: this.mainpage.allArticleData wird überschrieben und kommt nicht wieder auf den Originalzustand
     filter = filter.toLowerCase()
     console.log("Filtering started: " + filter)
     console.log("before: ")

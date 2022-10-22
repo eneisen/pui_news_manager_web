@@ -15,13 +15,11 @@ export class ArticleEditComponent implements OnInit {
 
   article: any
   imagechange: boolean= false
-  // articleList: Article[] = [];
 
  @ViewChild('articleedit') articleedit: any
 
   constructor(private api: NewsService, @Inject(ActivatedRoute) private route : ActivatedRoute, private newsservice: NewsService, private router: Router) {
     this.article = { id: 0, title: "", subtitle: "", category: "", abstract: "", body: "" }
-    // this.articleList = this.newsservice.getArticles()
     this.isImageSaved = false;
     this.imageError = undefined; 
     this.cardImageBase64 = undefined;
@@ -38,7 +36,6 @@ export class ArticleEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.api.getArticle(Number(this.route.snapshot.paramMap.get('id'))).subscribe(result => {
-      // this.api.getArticle(45).subscribe(result => {
       console.log(result);
       this.article = result;
     })
@@ -89,7 +86,7 @@ export class ArticleEditComponent implements OnInit {
     this.router.navigate(['/articlelist'])
   }
 
-//We tried to used the update Article method to really save the article to the server list and display it, 
+//We tried to use the update Article method to really save the article to the server list and display it, 
 //however we did not manage to apply it to the API
 
 }
